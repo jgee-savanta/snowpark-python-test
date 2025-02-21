@@ -1,19 +1,14 @@
 from snowflake.snowpark import Session
 from snowflake.core import Root
 
-connection_params = {
-    "account": "LK43159.uk-south.azure",
-    "user": "jack.gee@savanta.com",
-    "role": "SYSADMIN",
-    "authenticator": "externalbrowser"
-}
+connection_params = { "connection_name": "LK43159.uk-south.azure" }
 
 session = Session.builder.configs(connection_params).create()
 root = Root(session)
 
-databases_df = session.sql("SHOW DATABASES")
+tables_df = session.sql("SHOW TABLES IN SCHEMA VUEEXPORT_TEST.VUE")
 
-for row in databases_df.collect():
-    print(row[1])  # The name of the database is in the second column
+for row in tables_df.collect():
+    print(row[1])
 
 session.close()
