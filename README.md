@@ -2,6 +2,7 @@
 
 1. Install Python and Anaconda (or MiniConda)
 1. Add Anaconda scripts to PATH and reopen terminal: Open 'Anaconda Promp' in Windows start menu, run `where conda` and copy&paste results to PATH
+1. Reopen terminal
 1. Setup python env (Snowflake only compatible with Python 3.9>3.11):
     ```
     conda create -n <env_name> python==3.10
